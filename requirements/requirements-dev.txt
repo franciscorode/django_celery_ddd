@@ -1,0 +1,13 @@
+# Formatters
+black==22.6.0
+isort==5.10.1
+pycln==2.0.4
+
+# Linters
+flake8==4.0.1
+
+# Typing code check
+mypy==0.971
+
+# Hooks
+pre-commit==2.18.1

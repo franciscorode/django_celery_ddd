@@ -1,0 +1,25 @@
+# ORM and admin page
+Django==4.0.6
+django-debug-toolbar==3.5.0
+
+# API
+djangorestframework==3.13.1
+drf-yasg==1.21.3
+dj-rest-auth==2.2.5
+djangorestframework-simplejwt==5.2.0
+
+# Web server
+gunicorn==20.1.0
+uvicorn==0.18.2
+
+# Domain entities
+pydantic[email]==1.9.1
+
+# DI
+dependency-injector==4.39.1
+
+# Database postgres driver
+psycopg2-binary==2.9.3
+
+# Load environment variables
+python-dotenv==0.20.0
