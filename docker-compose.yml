@@ -1,0 +1,58 @@
+version: "3.5"
+
+services:
+  app:
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: docker/app/Dockerfile
+      args:
+        PROJECT_NAME: ${PROJECT_NAME}
+        USER_ID: ${USER_ID}
+        GROUP_ID: ${GROUP_ID}
+
+    environment:
+      DJANGO_DEBUG: ${DJANGO_DEBUG}
+      DJANGO_SETTINGS_MODULE: ${DJANGO_SETTINGS_MODULE}
+      PROJECT_NAME: ${PROJECT_NAME}
+      PROJECT_DJANGO_DIR: ${PROJECT_DJANGO_DIR}
+      LOGGING_ROOT_DIR: /logs
+      EMAIL_HOST_USER: ${EMAIL_HOST_USER}
+      EMAIL_HOST_PASSWORD: ${EMAIL_HOST_PASSWORD}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_HOST: ${POSTGRES_HOST}
+    ports:
+      - "8000"
+      - "${DJANGO_DEBUG_PORT}:8000"
+    volumes:
+      - vol_logs:/logs
+      - vol_static:/static
+    depends_on:
+      - postgres
+    links:
+      - postgres
+
+  postgres:
+    image: postgres:13.3
+    restart: always
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB_NAME}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      PGPASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - vol_postgres:/var/lib/postgresql/data
+      - vol_logs:/logs
+      - ./data/psql_dump.sql:/docker-entrypoint-initdb.d/psql_dump.sql
+    shm_size: "128mb"
+
+volumes:
+  vol_postgres:
+    driver: local
+  vol_logs:
+    driver: local
+  vol_static:
+    driver: local

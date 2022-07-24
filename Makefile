@@ -40,3 +40,19 @@ clean:
 	rm -f .coverage
 	rm -rf output
 	rm -rf .mypy_cache
+
+
+###############################
+###     DOCKER HELPERS      ###
+###############################
+
+up:
+	docker-compose up --build -d
+
+down:
+	docker-compose down
+
+downup: down up
+
+bash:
+	docker exec -it umibot_django_1 bash
