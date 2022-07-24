@@ -35,6 +35,10 @@ pre-commit install
 make up
 ```
 
+- Access the following pages:
+  - [Admin website](http://localhost:8010/admin)
+  - [API documentation](http://localhost:8010/swagger/)
+
 ## ✔️ Test
 
 ```shell

@@ -25,3 +25,13 @@ repos:
     rev: v0.971
     hooks:
       - id: mypy
+        additional_dependencies:
+          - "pydantic"
+          - "djangorestframework-stubs"
+          - "django-stubs"
+          - "drf-yasg-stubs"
+          - "python-dotenv"
+          - "django-debug-toolbar"
+          - "djangorestframework"
+          - "drf_yasg"
+          - "psycopg2-binary"
