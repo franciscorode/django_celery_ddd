@@ -16,7 +16,8 @@ install-app:
 	pip3 install -r requirements/requirements-app.txt
 
 uninstall:
-	pip3 freeze | xargs pip3 uninstall -y
+	rm -r venv
+	python3.9 -m virtualenv venv
 
 test:
 	pytest tests
@@ -55,4 +56,4 @@ down:
 downup: down up
 
 bash:
-	docker exec -it umibot_django_1 bash
+	docker exec -it umibot_app_1 bash

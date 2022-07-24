@@ -39,6 +39,24 @@ make up
   - [Admin website](http://localhost:8010/admin)
   - [API documentation](http://localhost:8010/swagger/)
 
+### 🌎 Environment variables
+
+It is need declare next environment variables in a `.env` file
+
+- ℹ️ General
+
+  - PROJECT_NAME=umibot
+  - PROJECT_DJANGO_DIR=umibot
+  - DJANGO_SETTINGS_MODULE=src.config.settings
+  - DJANGO_DEBUG=true
+  - DJANGO_DEBUG_PORT=8010
+
+- 💾 Database
+
+  - POSTGRES_USER=appuser
+  - POSTGRES_PASSWORD=password
+  - POSTGRES_PORT=5555
+
 ## ✔️ Test
 
 ```shell
