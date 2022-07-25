@@ -43,7 +43,7 @@ make up
 
 ### 🌎 Environment variables
 
-It is need declare next environment variables in a `.env` file
+It needs to declare the next environment variables in a `.env` file
 
 - Required
 
