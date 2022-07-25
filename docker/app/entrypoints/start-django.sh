@@ -1,8 +1,6 @@
 #!/bin/bash
 set -Eeo pipefail
 
-dockerize -wait tcp://${POSTGRES_HOST}:5432 -timeout 30s
-
 python3.9 manage.py collectstatic --noinput -v 0
 python3.9 manage.py migrate --noinput
 
