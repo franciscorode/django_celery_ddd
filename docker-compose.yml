@@ -25,6 +25,8 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_HOST: ${POSTGRES_HOST:-postgres}
       REDIS_HOST: ${REDIS_HOST:-redis}
+      CELERY_BROKER: ${CELERY_BROKER:-redis://redis:6379/0}
+      CELERY_BACKEND: ${CELERY_BACKEND:-redis://redis:6379/0}
       USER_REPOSITORY_TYPE: ${USER_REPOSITORY_TYPE:-sql}
       EMAIL_SENDER_TYPE: ${EMAIL_SENDER_TYPE:-django}
     ports:
