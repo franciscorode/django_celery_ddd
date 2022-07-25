@@ -23,3 +23,8 @@ psycopg2-binary==2.9.3
 
 # Load environment variables
 python-dotenv==0.20.0
+
+# Background tasks
+celery==5.2.7
+flower==1.1.0
+redis==4.3.4

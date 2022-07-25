@@ -37,10 +37,11 @@ RUN python3.9 -m pip install --upgrade pip
 RUN pip3.9 install -r requirements-app.txt
 
 # Copy sources
-COPY --chown=appuser:appgroup docker/app/entrypoint.sh /
-RUN chmod gu+x /entrypoint.sh && chown appuser:appgroup /entrypoint.sh
+COPY --chown=appuser:appgroup docker/app/entrypoints /entrypoints
+RUN chmod gu+x /entrypoints/* && chown appuser:appgroup /entrypoints
+
 COPY --chown=appuser:appgroup ${PROJECT_NAME}/${PROJECT_DJANGO_DIR}/ /${PROJECT_NAME}
 
 USER appuser
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoints/entrypoint.sh"]
