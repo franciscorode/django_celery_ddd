@@ -10,9 +10,7 @@ services:
         PROJECT_NAME: ${PROJECT_NAME}
         USER_ID: ${USER_ID:-1000}
         GROUP_ID: ${GROUP_ID:-1000}
-
     command: /entrypoints/start-django.sh
-
     environment: &app-environment
       DJANGO_DEBUG: ${DJANGO_DEBUG:-false}
       DJANGO_SETTINGS_MODULE: ${DJANGO_SETTINGS_MODULE:-src.config.settings}
@@ -29,9 +27,9 @@ services:
       CELERY_BACKEND: ${CELERY_BACKEND:-redis://redis:6379/0}
       USER_REPOSITORY_TYPE: ${USER_REPOSITORY_TYPE:-sql}
       EMAIL_SENDER_TYPE: ${EMAIL_SENDER_TYPE:-django}
+      BACKGROUND_TASK_EXECUTOR_TYPE: ${BACKGROUND_TASK_EXECUTOR_TYPE:-celery}
     ports:
       - "8000"
-      - "${DJANGO_DEBUG_PORT:-8000}:8000"
     volumes:
       - vol_logs:/logs
       - vol_static:/static
@@ -49,8 +47,6 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       PGPASSWORD: ${POSTGRES_PASSWORD}
-    ports:
-      - "${POSTGRES_PORT:-5432}:5432"
     volumes:
       - vol_postgres:/var/lib/postgresql/data
       - vol_logs:/logs
