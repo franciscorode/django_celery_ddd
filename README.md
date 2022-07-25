@@ -35,29 +35,28 @@ pre-commit install
 make up
 ```
 
-- Access the following pages:
-  - [Admin website](http://localhost:8010/admin)
-  - [API documentation](http://localhost:8010/swagger/)
-  - [Celery flower](http://localhost:5557/)
+### 🌐 Access the following pages
+
+- [Admin website](http://localhost:8010/admin)
+- [API documentation](http://localhost:8010/swagger/)
+- [Celery flower](http://localhost:5557/)
 
 ### 🌎 Environment variables
 
-It is need declare next environment variables in a `.env` file
+It needs to declare the next environment variables in a `.env` file
 
-- ℹ️ General
+- Required
 
-  - PROJECT_NAME=umibot
-  - PROJECT_DJANGO_DIR=umibot
-  - DJANGO_SETTINGS_MODULE=src.config.settings
-  - DJANGO_DEBUG=true
-  - DJANGO_DEBUG_PORT=8010
-  - CELERY_BROKER=redis://redis:6379/0
+  - `POSTGRES_USER=appuser`
+  - `POSTGRES_PASSWORD=password`
+  - `EMAIL_HOST_USER=example@example.com`
+  - `EMAIL_HOST_PASSWORD=password`
 
-- 💾 Database
+- Optional
 
-  - POSTGRES_USER=appuser
-  - POSTGRES_PASSWORD=password
-  - POSTGRES_PORT=5555
+  - `DJANGO_DEBUG=true`
+  - `DJANGO_DEBUG_PORT=8010`
+  - `POSTGRES_PORT=5555`
 
 ## ✔️ Test
 

@@ -1,0 +1,43 @@
+on:
+  push:
+    paths-ignore:
+      - "**.md"
+    branches:
+      - main
+  pull_request:
+    paths-ignore:
+      - "**.md"
+
+env:
+  POSTGRES_USER: root
+  POSTGRES_PASSWORD: root
+  DJANGO_DEBUG: true
+  EMAIL_HOST_USER: ${{ secrets.EMAIL_HOST_USER }}
+  EMAIL_HOST_PASSWORD: ${{ secrets.EMAIL_HOST_PASSWORD }}
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: 📁 Project checkout
+        uses: actions/checkout@v3
+
+      - name: 🐍 Setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+          cache: pip
+          cache-dependency-path: "**/requirements*.txt"
+
+      - name: 📥 Install dependencies
+        run: make install
+
+      - name: 🧐 Lint
+        run: make lint
+
+      - name: 🐋 Start environment
+        run: make up
+
+      - name: ✅ Tests
+        run: make test
