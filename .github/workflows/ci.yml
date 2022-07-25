@@ -8,17 +8,10 @@ env:
   POSTGRES_USER: root
   POSTGRES_PASSWORD: root
   DJANGO_DEBUG: true
+  EMAIL_HOST_USER: ${{ secrets.EMAIL_HOST_USER }}
+  EMAIL_HOST_PASSWORD: ${{ secrets.EMAIL_HOST_PASSWORD }}
 
 jobs:
-  pre-build:
-    runs-on: ubuntu-20.04
-
-    steps:
-      - name: 🔑 Load secrets
-        run: |
-          echo "EMAIL_HOST_USER=${{ secrets.EMAIL_HOST_USER }}" >> $GITHUB_ENV
-          echo "EMAIL_HOST_PASSWORD=${{ secrets.EMAIL_HOST_PASSWORD }}" >> $GITHUB_ENV
-
   build:
     runs-on: ubuntu-20.04
 
