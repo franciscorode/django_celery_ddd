@@ -29,7 +29,7 @@ services:
       EMAIL_SENDER_TYPE: ${EMAIL_SENDER_TYPE:-django}
     ports:
       - "8000"
-      - "${DJANGO_DEBUG_PORT}:8000"
+      - "${DJANGO_DEBUG_PORT:-8000}:8000"
     volumes:
       - vol_logs:/logs
       - vol_static:/static
