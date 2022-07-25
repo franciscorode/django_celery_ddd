@@ -9,6 +9,7 @@ on:
       - "**.md"
 
 env:
+  ENVIRONMENT_NAME: CI
   POSTGRES_USER: root
   POSTGRES_PASSWORD: root
   DJANGO_DEBUG: true

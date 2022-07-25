@@ -47,6 +47,7 @@ It needs to declare the next environment variables in a `.env` file
 
 - Required
 
+  - `ENVIRONMENT_NAME=LOCAL`
   - `POSTGRES_USER=appuser`
   - `POSTGRES_PASSWORD=password`
   - `EMAIL_HOST_USER=example@example.com`

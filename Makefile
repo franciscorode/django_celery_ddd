@@ -2,6 +2,14 @@
 export PYTHONPATH := $(shell pwd)
 export PROJECT_NAME = umibot
 
+ifeq ($(ENVIRONMENT_NAME),LOCAL)
+	export DOCKER_COMPOSE_FILES := -f docker-compose-develop.yml -f docker-compose.yml
+else ifeq ($(ENVIRONMENT_NAME),CI)
+	export DOCKER_COMPOSE_FILES := -f docker-compose-ci.yml -f docker-compose.yml
+else
+	export DOCKER_COMPOSE_FILES := -f docker-compose.yml
+endif
+
 .PHONY: help
 
 help:
@@ -47,10 +55,10 @@ clean:
 ###############################
 
 up:
-	docker-compose up --build -d
+	docker-compose ${DOCKER_COMPOSE_FILES} up --build -d
 
 down:
-	docker-compose down
+	docker-compose ${DOCKER_COMPOSE_FILES} down
 
 downup: down up
 

@@ -1,0 +1,17 @@
+version: "3.5"
+
+services:
+  app:
+    volumes:
+      - ./${PROJECT_DJANGO_DIR:-umibot}:/${PROJECT_NAME}
+    ports:
+      - "8000"
+      - "${DJANGO_DEBUG_PORT:-8000}:8000"
+
+  postgres:
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+
+  redis:
+    ports:
+      - "6379:6379"
