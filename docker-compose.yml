@@ -14,10 +14,10 @@ services:
     command: /entrypoints/start-django.sh
 
     environment: &app-environment
-      DJANGO_DEBUG: ${DJANGO_DEBUG}
-      DJANGO_SETTINGS_MODULE: ${DJANGO_SETTINGS_MODULE}
-      PROJECT_NAME: ${PROJECT_NAME}
-      PROJECT_DJANGO_DIR: ${PROJECT_DJANGO_DIR}
+      DJANGO_DEBUG: ${DJANGO_DEBUG:-false}
+      DJANGO_SETTINGS_MODULE: ${DJANGO_SETTINGS_MODULE:-src.config.settings}
+      PROJECT_NAME: ${PROJECT_NAME:-umibot}
+      PROJECT_DJANGO_DIR: ${PROJECT_DJANGO_DIR:-umibot}
       LOGGING_ROOT_DIR: /logs
       EMAIL_HOST_USER: ${EMAIL_HOST_USER}
       EMAIL_HOST_PASSWORD: ${EMAIL_HOST_PASSWORD}
@@ -48,7 +48,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       PGPASSWORD: ${POSTGRES_PASSWORD}
     ports:
-      - "${POSTGRES_PORT}:5432"
+      - "${POSTGRES_PORT:-5432}:5432"
     volumes:
       - vol_postgres:/var/lib/postgresql/data
       - vol_logs:/logs

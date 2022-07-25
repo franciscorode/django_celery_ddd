@@ -44,19 +44,17 @@ make up
 
 It is need declare next environment variables in a `.env` file
 
-- ℹ️ General
-
-  - PROJECT_NAME=umibot
-  - PROJECT_DJANGO_DIR=umibot
-  - DJANGO_SETTINGS_MODULE=src.config.settings
-  - DJANGO_DEBUG=true
-  - DJANGO_DEBUG_PORT=8010
-  - CELERY_BROKER=redis://redis:6379/0
-
-- 💾 Database
+- Required
 
   - POSTGRES_USER=appuser
   - POSTGRES_PASSWORD=password
+  - EMAIL_HOST_USER=example@example.com
+  - EMAIL_HOST_PASSWORD=password
+
+- Optional
+
+  - DJANGO_DEBUG=true
+  - DJANGO_DEBUG_PORT=8010
   - POSTGRES_PORT=5555
 
 ## ✔️ Test
