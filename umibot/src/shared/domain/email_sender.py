@@ -15,6 +15,7 @@ class EmailContent(BaseModel):
 
 class EmailTemplate(Enum):
     WELCOME = "WELCOME"
+    CUSTOMER_REQUEST = "CUSTOMER_REQUEST"
 
 
 class EmailInfo(BaseModel):
