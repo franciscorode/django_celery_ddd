@@ -1,3 +1,5 @@
+from random import choice
+
 from faker import Faker
 from src.customer_assistance.domain.customer_request import CustomerRequest, Department
 
@@ -12,3 +14,12 @@ class CustomerRequestMother:
     @staticmethod
     def pricing_request() -> CustomerRequest:
         return CustomerRequest(department=Department.PRICING, question=fake.text())
+
+    @staticmethod
+    def random() -> CustomerRequest:
+        return choice(
+            [
+                CustomerRequestMother.sales_request(),
+                CustomerRequestMother.pricing_request(),
+            ]
+        )
