@@ -2,17 +2,17 @@ import os
 
 from dependency_injector import containers, providers
 from dotenv import load_dotenv
-from src.create_user.domain.email_sender import EmailSender
-from src.create_user.infrastructure.django_email_sender import DjangoEmailSender
-from src.create_user.infrastructure.fake_email_sender import FakeEmailSender
 from src.shared.domain.background_task_executor import BackgroundTaskExecutor
+from src.shared.domain.email_sender import EmailSender
 from src.shared.domain.user_repository import UserRepository
 from src.shared.infrastructure.celery_background_task_executor import (
     CeleryBackgroundTaskExecutor,
 )
+from src.shared.infrastructure.django_email_sender import DjangoEmailSender
 from src.shared.infrastructure.fake_background_task_executor import (
     FakeBackgroundTaskExecutor,
 )
+from src.shared.infrastructure.fake_email_sender import FakeEmailSender
 from src.shared.infrastructure.fake_user_repository import FakeUserRepository
 from src.shared.infrastructure.sql_django_user_repository import SqlDjangoUserRepository
 

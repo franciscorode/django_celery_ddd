@@ -1,13 +1,13 @@
 from typing import Any, Dict
 
 from django.core.mail import send_mail
-from src.create_user.domain.email_sender import (
+from src.shared.domain.email_sender import (
     EmailContent,
     EmailInfo,
     EmailSender,
     EmailTemplate,
 )
-from src.create_user.domain.errors import InvalidEmailContentData
+from src.shared.domain.errors import InvalidEmailContentData
 
 
 class DjangoEmailSender(EmailSender):

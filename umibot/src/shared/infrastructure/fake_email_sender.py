@@ -1,6 +1,6 @@
 from typing import Any, Dict
 
-from src.create_user.domain.email_sender import EmailInfo, EmailSender, EmailTemplate
+from src.shared.domain.email_sender import EmailInfo, EmailSender, EmailTemplate
 
 
 class FakeEmailSender(EmailSender):

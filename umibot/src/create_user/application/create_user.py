@@ -1,5 +1,5 @@
-from src.create_user.domain.email_sender import EmailInfo, EmailSender, EmailTemplate
 from src.shared.domain.background_task_executor import BackgroundTaskExecutor
+from src.shared.domain.email_sender import EmailInfo, EmailSender, EmailTemplate
 from src.shared.domain.user import User
 from src.shared.domain.user_repository import UserRepository
 
