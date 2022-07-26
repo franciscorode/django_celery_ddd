@@ -10,6 +10,8 @@ from rest_framework.views import APIView
 from src.api.exception_handler import UserAlreadyExistAPIException
 from src.config.container import Container
 from src.create_user.application.create_user import CreateUser
+from src.create_user.domain.email_sender import EmailSender
+from src.shared.domain.background_task_executor import BackgroundTaskExecutor
 from src.shared.domain.user import User
 from src.shared.domain.user_repository import UserRepository
 
@@ -42,10 +44,16 @@ class UserView(APIView):
         user_repository: UserRepository = Provide[
             Container.repositories.user_repository
         ],
+        email_sender: EmailSender = Provide[Container.services.email_sender],
+        background_task_executor: BackgroundTaskExecutor = Provide[
+            Container.services.background_task_executor
+        ],
     ) -> Response:
         user_serializer = UserSerializer(data=request.data)
         user_serializer.is_valid(raise_exception=True)
-        CreateUser(user_repository=user_repository).execute(
-            user=user_serializer.to_domain_entity()
-        )
+        CreateUser(
+            user_repository=user_repository,
+            email_sender=email_sender,
+            background_task_executor=background_task_executor,
+        ).execute(user=user_serializer.to_domain_entity())
         return Response(status=status.HTTP_201_CREATED)
