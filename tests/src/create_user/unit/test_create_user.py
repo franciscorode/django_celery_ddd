@@ -3,9 +3,9 @@ from unittest.mock import Mock
 import pytest
 from object_mothers.user_mother import UserMother
 from src.create_user.application.create_user import CreateUser
-from src.create_user.domain.email_sender import EmailSender
 from src.create_user.domain.errors import UserAlreadyExist
 from src.shared.domain.background_task_executor import BackgroundTaskExecutor
+from src.shared.domain.email_sender import EmailSender
 from src.shared.domain.user import User
 from src.shared.domain.user_repository import UserRepository
 

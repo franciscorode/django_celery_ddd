@@ -38,3 +38,4 @@ repos:
           - "psycopg2-binary"
           - "celery-types"
           - "celery"
+          - "slack_sdk"

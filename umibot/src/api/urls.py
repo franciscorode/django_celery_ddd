@@ -19,7 +19,8 @@ from django.contrib import admin
 from django.urls import path, re_path
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
-from src.shared.infrastructure.views import UserView
+from src.api.customer_views import CustomerRequestView
+from src.api.user_views import UserView
 
 SchemaView = get_schema_view(
     openapi.Info(
@@ -43,6 +44,11 @@ urlpatterns = [
     re_path(r"^swagger/$", SchemaView.with_ui("swagger"), name="schema-swagger-ui"),
     re_path(r"^redoc/$", SchemaView.with_ui("redoc"), name="schema-redoc"),
     path("api/v1/user/", UserView.as_view(), name="user"),
+    path(
+        "api/v1/customer-request/",
+        CustomerRequestView.as_view(),
+        name="customer-request",
+    ),
 ] + static(
     settings.STATIC_URL, document_root=settings.STATIC_ROOT
 )  # type: ignore

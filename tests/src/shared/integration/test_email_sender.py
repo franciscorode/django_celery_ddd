@@ -1,9 +1,9 @@
 import os
 
 import pytest
-from src.create_user.domain.email_sender import EmailInfo, EmailSender, EmailTemplate
-from src.create_user.domain.errors import InvalidEmailContentData
-from src.create_user.infrastructure.django_email_sender import DjangoEmailSender
+from src.shared.domain.email_sender import EmailInfo, EmailSender, EmailTemplate
+from src.shared.domain.errors import InvalidEmailContentData
+from src.shared.infrastructure.django_email_sender import DjangoEmailSender
 
 
 @pytest.mark.integration

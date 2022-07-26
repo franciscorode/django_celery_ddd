@@ -10,8 +10,8 @@ from rest_framework.views import APIView
 from src.api.exception_handler import UserAlreadyExistAPIException
 from src.config.container import Container
 from src.create_user.application.create_user import CreateUser
-from src.create_user.domain.email_sender import EmailSender
 from src.shared.domain.background_task_executor import BackgroundTaskExecutor
+from src.shared.domain.email_sender import EmailSender
 from src.shared.domain.user import User
 from src.shared.domain.user_repository import UserRepository
 

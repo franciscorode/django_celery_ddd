@@ -10,4 +10,4 @@ class DjangoInfraConfig(AppConfig):
 
         container = Container()
         container.config.from_dict(settings.__dict__)
-        container.wire(modules=[".views"])
+        container.wire(packages=["src.api"])

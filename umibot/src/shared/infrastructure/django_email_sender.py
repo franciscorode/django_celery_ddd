@@ -1,13 +1,13 @@
 from typing import Any, Dict
 
 from django.core.mail import send_mail
-from src.create_user.domain.email_sender import (
+from src.shared.domain.email_sender import (
     EmailContent,
     EmailInfo,
     EmailSender,
     EmailTemplate,
 )
-from src.create_user.domain.errors import InvalidEmailContentData
+from src.shared.domain.errors import InvalidEmailContentData
 
 
 class DjangoEmailSender(EmailSender):
@@ -36,5 +36,14 @@ class DjangoEmailSender(EmailSender):
                 )
             return EmailContent(
                 subject="Welcome to UmiShop", message=f"Welcome {username}"
+            )
+        if template == EmailTemplate.CUSTOMER_REQUEST:
+            question = data.get("question")
+            if question is None:
+                raise InvalidEmailContentData(
+                    message="'question' is needed to customer request tamplate"
+                )
+            return EmailContent(
+                subject="Customer request", message=f"Question: {question}"
             )
         raise NotImplementedError(f"Template '{template}' is not implemented")
