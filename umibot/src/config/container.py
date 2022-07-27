@@ -2,6 +2,7 @@ import os
 
 from dependency_injector import containers, providers
 from dotenv import load_dotenv
+
 from src.customer_assistance.domain.notifier import Notifier
 from src.customer_assistance.infrastructure.fake_notifier import FakeNotifier
 from src.customer_assistance.infrastructure.slack_notifier import SlackNotifier

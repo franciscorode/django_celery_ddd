@@ -1,6 +1,7 @@
 from random import choice
 
 from faker import Faker
+
 from src.customer_assistance.domain.customer_request import CustomerRequest, Department
 
 fake = Faker()

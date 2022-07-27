@@ -1,6 +1,7 @@
 import os
 
 import pytest
+
 from src.customer_assistance.domain.notifier import NotificationMessage, Notifier
 from src.customer_assistance.infrastructure.slack_notifier import SlackNotifier
 

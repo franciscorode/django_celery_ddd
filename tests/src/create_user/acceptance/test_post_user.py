@@ -3,9 +3,10 @@ from unittest.mock import patch
 
 import pytest
 from django.urls import reverse
-from object_mothers.user_mother import UserMother
 from rest_framework import status
 from rest_framework.test import APIClient
+
+from object_mothers.user_mother import UserMother
 from src.create_user.domain.errors import UserAlreadyExist
 from src.shared.domain.user import User
 from src.shared.infrastructure.fake_user_repository import FakeUserRepository

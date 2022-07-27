@@ -7,6 +7,7 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.serializers import CharField, EmailField, UUIDField
 from rest_framework.views import APIView
+
 from src.api.exception_handler import UserAlreadyExistAPIException
 from src.config.container import Container
 from src.create_user.application.create_user import CreateUser

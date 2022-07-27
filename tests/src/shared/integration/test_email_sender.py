@@ -1,6 +1,7 @@
 import os
 
 import pytest
+
 from src.shared.domain.email_sender import EmailInfo, EmailSender, EmailTemplate
 from src.shared.domain.errors import InvalidEmailContentData
 from src.shared.infrastructure.django_email_sender import DjangoEmailSender
