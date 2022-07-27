@@ -2,6 +2,7 @@ from typing import Any, Dict, List
 
 from slack_sdk.errors import SlackApiError
 from slack_sdk.web.client import WebClient
+
 from src.customer_assistance.domain.notifier import NotificationMessage, Notifier
 
 SLACK_MAX_LENGHT = 3000

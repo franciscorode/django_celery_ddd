@@ -1,6 +1,7 @@
 import os
 
 import pytest
+
 from src.shared.domain.background_task_executor import BackgroundTaskExecutor
 from src.shared.infrastructure.celery_background_task_executor import (
     CeleryBackgroundTaskExecutor,

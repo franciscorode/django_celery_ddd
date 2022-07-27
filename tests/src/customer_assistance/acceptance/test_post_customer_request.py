@@ -1,8 +1,9 @@
 import pytest
 from django.urls import reverse
-from object_mothers.customer_request_mother import CustomerRequestMother
 from rest_framework import status
 from rest_framework.test import APIClient
+
+from object_mothers.customer_request_mother import CustomerRequestMother
 from src.customer_assistance.domain.customer_request import CustomerRequest
 
 

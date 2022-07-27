@@ -1,6 +1,7 @@
 from unittest.mock import Mock
 
 import pytest
+
 from object_mothers.user_mother import UserMother
 from src.create_user.application.create_user import CreateUser
 from src.create_user.domain.errors import UserAlreadyExist

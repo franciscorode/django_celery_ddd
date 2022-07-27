@@ -1,6 +1,7 @@
 from typing import Any, Dict
 
 from django.core.mail import send_mail
+
 from src.shared.domain.email_sender import (
     EmailContent,
     EmailInfo,

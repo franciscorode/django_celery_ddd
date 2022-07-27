@@ -1,6 +1,7 @@
 import uuid
 
 from faker import Faker
+
 from src.shared.domain.user import User
 
 fake = Faker()

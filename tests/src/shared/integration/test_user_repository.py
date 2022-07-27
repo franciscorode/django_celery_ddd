@@ -1,4 +1,5 @@
 import pytest
+
 from object_mothers.user_mother import UserMother
 from src.create_user.domain.errors import UserAlreadyExist
 from src.shared.domain.user import User

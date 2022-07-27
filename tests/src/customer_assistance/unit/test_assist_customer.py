@@ -1,10 +1,10 @@
 from unittest.mock import Mock
 
 import pytest
+
 from src.customer_assistance.application.assist_customer import AssistCustomer
 from src.customer_assistance.domain.notifier import Notifier
 from src.shared.domain.email_sender import EmailSender
-
 from tests.object_mothers.customer_request_mother import CustomerRequestMother
 
 
