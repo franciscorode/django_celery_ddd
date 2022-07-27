@@ -52,6 +52,9 @@ It needs to declare the next environment variables in a `.env` file
   - `POSTGRES_PASSWORD=password`
   - `EMAIL_HOST_USER=example@example.com`
   - `EMAIL_HOST_PASSWORD=password`
+  - `CUSTOMER_SUPPORT_EMAIL=support@example.com`
+  - `SLACK_CHANNEL=channel|channel_id`
+  - `SLACK_TOKEN=token`
 
 - Optional
 
